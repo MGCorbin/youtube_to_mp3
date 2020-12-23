@@ -4,18 +4,20 @@ import youtube_dl
 
 class MyLogger(object):
     def debug(self, msg):
-        print_to_box(msg)
+        pass
 
     def warning(self, msg):
-        print_to_box(msg)
+        pass
 
     def error(self, msg):
         print_to_box(msg)
 
 
 def my_hook(d):
+    if d['status'] == 'downloading':
+        print_to_box(d['filename'] + ' ' + d['_percent_str'] + ' ' + d['_eta_str'] + '\n')
     if d['status'] == 'finished':
-        print_to_box('Done downloading, now converting...')
+        print_to_box("Download complete. \n\n")
 
 
 dl_opts = {
@@ -38,6 +40,7 @@ def convert_pressed():
     if len(url) == 0:
         print_to_box("ERROR: invalid URL\n")
     else:
+        print_to_box("Starting...\n")
         download(url)
 
 def print_to_box(msg):
