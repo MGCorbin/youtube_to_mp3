@@ -82,8 +82,6 @@ output_box = tk.Text(master=frm_output, state='disabled', width=100)
 output_label.grid(row=0, column = 0)
 output_box.grid(row=1, column = 1)
 
-
-
 frm_buttons = tk.Frame()
 frm_buttons.pack(fill=tk.X, ipadx=5, ipady=5)
 
